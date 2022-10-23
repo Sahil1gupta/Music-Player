@@ -78,7 +78,19 @@ function random_bg_color() {
   // Set the background to that color
   document.body.style.background = bgColor;
 }
+//Autotext
+let i=1;
+setInterval(AutoText,150)
+function AutoText(){
+ 
+  track_name.textContent= track_list[track_index].name.substring(0,i);
+    
+i++
 
+if(i>track_list[track_index].name.length){
+    i=1;
+}
+}
 function loadTrack(track_index) {
   clearInterval(updateTimer);
   resetValues();
@@ -87,7 +99,7 @@ function loadTrack(track_index) {
 
   track_art.style.backgroundImage =
     "url(" + track_list[track_index].image + ")";
-  track_name.textContent = track_list[track_index].name;
+  // track_name.textContent = track_list[track_index].name;
   track_artist.textContent = track_list[track_index].artist;
   now_playing.textContent =
     "PLAYING " + (track_index + 1) + " OF " + track_list.length;
@@ -180,3 +192,5 @@ function seekUpdate() {
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
+
+
